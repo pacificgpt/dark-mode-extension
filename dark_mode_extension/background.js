@@ -1,6 +1,12 @@
-chrome.action.onClicked.addListener((tab) => {
-    chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        files: ["content.js"],
-    });
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (changeInfo.status === "complete" && tab.url && tab.url.startsWith("http")) {
+        chrome.storage.local.get(["darkModeEnabled"], ({ darkModeEnabled }) => {
+            if (darkModeEnabled) {
+                chrome.scripting.executeScript({
+                    target: { tabId },
+                    files: ["content.js"]
+                });
+            }
+        });
+    }
 });

@@ -1,9 +1,20 @@
 {
   "manifest_version": 3,
   "name": "Dark Mode Toggle",
-  "version": "1.0",
-  "description": "Toggle any website between dark mode and light mode.",
-  "permissions": ["scripting", "activeTab"],
+  "version": "1.2",
+  "description": "Toggle dark mode for individual websites.",
+  "permissions": ["scripting", "activeTab", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -11,9 +22,5 @@
       "48": "icon48.png",
       "128": "icon128.png"
     }
-  },
-  "background": {
-    "service_worker": "background.js"
-  },
-  "host_permissions": ["<all_urls>"]
+  }
 }
