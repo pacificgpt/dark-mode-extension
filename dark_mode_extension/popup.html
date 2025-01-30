@@ -6,31 +6,33 @@
     <title>Dark Mode Toggle</title>
     <style>
       body {
-        width: 200px;
-        height: 100px;
+        width: 100px; /* Reduced popup width */
+        height: 50px; /* Reduced popup height */
         display: flex;
         justify-content: center;
         align-items: center;
         background: #242424;
         color: #e0e0e0;
         font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
       }
       .toggle-btn {
-        width: 60px;
-        height: 30px;
+        width: 50px;
+        height: 25px;
         background: #555;
-        border-radius: 15px;
+        border-radius: 12.5px;
         position: relative;
         cursor: pointer;
         transition: background 0.3s ease;
       }
       .toggle-btn .slider {
-        width: 26px;
-        height: 26px;
+        width: 22px;
+        height: 22px;
         background: white;
         border-radius: 50%;
         position: absolute;
-        top: 2px;
+        top: 1.5px;
         left: 2px;
         transition: all 0.3s ease;
       }
@@ -38,7 +40,7 @@
         background: #0a84ff;
       }
       .dark .slider {
-        left: 32px;
+        left: 26px;
       }
     </style>
   </head>
