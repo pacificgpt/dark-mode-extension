@@ -1,21 +1,35 @@
-document.getElementById("toggle-dark-mode").addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.getElementById("toggle-dark-mode");
+
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         if (tabs.length === 0 || !tabs[0].url) return;
-
         const currentSite = new URL(tabs[0].url).hostname;
 
         chrome.storage.local.get(["darkModeSites"], ({ darkModeSites }) => {
-            darkModeSites = darkModeSites || {};
-            const newDarkModeState = !darkModeSites[currentSite];
+            if (darkModeSites && darkModeSites[currentSite]) {
+                document.body.classList.add("dark");
+            }
+        });
+    });
 
-            // Store dark mode setting per website
-            darkModeSites[currentSite] = newDarkModeState;
-            chrome.storage.local.set({ darkModeSites });
+    toggleBtn.addEventListener("click", () => {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            if (tabs.length === 0 || !tabs[0].url) return;
+            const currentSite = new URL(tabs[0].url).hostname;
 
-            // Apply the change to the current tab
-            chrome.scripting.executeScript({
-                target: { tabId: tabs[0].id },
-                files: ["content.js"]
+            chrome.storage.local.get(["darkModeSites"], ({ darkModeSites }) => {
+                darkModeSites = darkModeSites || {};
+                const newDarkModeState = !darkModeSites[currentSite];
+
+                darkModeSites[currentSite] = newDarkModeState;
+                chrome.storage.local.set({ darkModeSites });
+
+                document.body.classList.toggle("dark");
+
+                chrome.scripting.executeScript({
+                    target: { tabId: tabs[0].id },
+                    files: ["content.js"]
+                });
             });
         });
     });

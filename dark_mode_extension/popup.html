@@ -1,13 +1,51 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Dark Mode Toggle</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div id="container">
-    <button id="toggle-dark-mode">Toggle Dark Mode</button>
-  </div>
-  <script src="popup.js"></script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Mode Toggle</title>
+    <style>
+      body {
+        width: 200px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #242424;
+        color: #e0e0e0;
+        font-family: Arial, sans-serif;
+      }
+      .toggle-btn {
+        width: 60px;
+        height: 30px;
+        background: #555;
+        border-radius: 15px;
+        position: relative;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+      .toggle-btn .slider {
+        width: 26px;
+        height: 26px;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: all 0.3s ease;
+      }
+      .dark .toggle-btn {
+        background: #0a84ff;
+      }
+      .dark .slider {
+        left: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toggle-btn" id="toggle-dark-mode">
+      <div class="slider"></div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
 </html>
