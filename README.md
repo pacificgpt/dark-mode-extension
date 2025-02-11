@@ -41,3 +41,8 @@ This project is **open-source** under the [MIT License](LICENSE).
 ## 💡 Contribution  
 Want to improve this extension? Fork the repository and submit a PR! 😊  
 
+## 📧 Contact
+For any issues, open an issue on GitHub.
+
+
+
