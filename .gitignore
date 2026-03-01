@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# IDES
+.vscode/
+.idea/
+
+# Zip files
+*.zip
+*.tar.gz
+*.rar
+
+# Extensions
+*.crx
+*.pem

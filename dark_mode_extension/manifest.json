@@ -3,10 +3,7 @@
   "name": "Dark Mode Toggle",
   "version": "1.2",
   "description": "Toggle dark mode for individual websites.",
-  "permissions": ["scripting", "activeTab", "storage"],
-  "background": {
-    "service_worker": "background.js"
-  },
+  "permissions": ["activeTab", "storage"],
   "host_permissions": ["<all_urls>"],
   "content_scripts": [
     {
