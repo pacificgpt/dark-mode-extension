@@ -14,8 +14,8 @@ Dark Mode Toggle is a lightweight Chrome extension that allows users to **enable
 ### **Option 1: Load as an Unpacked Extension (For Development)**  
 1. **Download or clone** this repository:  
    ```sh  
-   git clone https://github.com/your-repo/dark-mode-toggle.git  
-   cd dark-mode-toggle  
+   git clone https://github.com/pacificgpt/dark-mode-extension.git 
+   cd dark-mode-extension  
    ```  
 2. Open **Google Chrome** and navigate to:  
    ```  
